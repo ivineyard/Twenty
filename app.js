@@ -1,114 +1,115 @@
 let input = "y";
-let player = 0;
-let bot = 0;
+let play = 0;
+let com = 0;
 
 
-do{
+do {
     
-   alert("Welcome to Twenty in this game we will go against each other trying to get the closest to 20")
-   var value = 0;
+   alert("Welcome to Twenty! In this game we will go against each other trying to get the closest to 20")
+   var val = 0;
 
    alert("I'll go first")
-   do{
+   do {
 
-       do{
+       do {
 
            var ran = Math.floor(Math.random() * 11)
 
-       }while(ran == 0)
+       } while(ran == 0)
 
-       value = value + ran;
+       val = val + ran;
 
-       if (value < 16){
+       if (val < 16){
 
-           alert(`I have ${value}. I'm going to draw`)
+           alert(`I have ${val}. I'm going to draw`)
        }
        
-       else if(value == 20){
+       else if(val == 20){
            break;
        }
        
-       else if(value > 20){
+       else if(val > 20){
            break;
        }
        
-       else if(value >= 16){
+       else if(val >= 16){
 
-           alert(`I have ${value}. I think I'll stop here.`)
+           alert(`I have ${val}. I think I'll stop here.`)
            alert("Your turn")
        }
  
-   }while(value < 16)
+   } while(val < 16)
   
-   var pvalue = 0;
+   var pval = 0;
    var option = 0;
  
  
-   do{
-       if(value > 20){
+   do {
+       if(val > 20){
            break;
        }
        
-       else{
+       else {
 
-           do{
+           do {
                var ran = Math.floor(Math.random() * 10)
            }
            
            while(ran == 0)
 
-           pvalue = pvalue + ran;
+           pval = pval + ran;
 
-           if (pvalue > 20){
+           if (pval > 20){
 
-               alert(`You got ${pvalue} and lost.`)
-               bot++;
+               alert(`You got ${pval} and lost.`)
+               com++;
            }
            
-           else if(pvalue == 20){
+           else if(pval == 20){
                break;
            }
            
-           else{
-           option = window.prompt(`You have ${pvalue}. I had ${value}. If you want to draw press 1 if you want to stop press 2.`)
+           else {
+           option = window.prompt(`You have ${pval}. I had ${val}. If you want to draw press 1 if you want to stop press 2.`)
            }
        }
    }
    
-   while((option != "2") && (pvalue < 20) && (input != "n"))
+   while ((option != "2") && (pval < 20) && (input != "n"))
  
  
-   if((pvalue <= 20) && (value <= 20) && (pvalue > value) && (pvalue != 20) || (pvalue == 20)){
+   if ((pval <= 20) && (val <= 20) && (pval > val) && (pval != 20) || (pval == 20)){
 
-       alert(`You got ${pvalue} and Won.`)
-       player++;
+       alert(`You got ${pval} and Won.`)
+       play++;
    }
    
-   else if(value > 20){
+   else if (val > 20){
 
-       alert(`I got ${value} and lost.`)
-       player++;
+       alert(`I got ${val} and lost.`)
+       play++;
    }
    
-   else if((value > pvalue) && (value <= 20) && (pvalue <= 20)){
+   else if ((val > pval) && (val <= 20) && (pval <= 20)){
 
-       alert(`I got ${value} and won.`)
-       bot++;
+       alert(`I got ${val} and won.`)
+       com++;
    }
    
-   else if((value == pvalue) && (pvalue >= 20)){
+   else if ((val == pval) && (pval >= 20)){
 
-       alert(`We got ${pvalue} and tied.`)
+       alert(`We got ${pval} and tied.`)
    }
   
-   input = window.prompt(`The score is ${bot} for me and ${player} for you. Would you like to play again? If yes press y if no press n`)
+
+   input = window.prompt(`The score is ${com} for me and ${play} for you. Would you like to play again? If yes press 1 if no press 2`)
   
-   if (input == "y"){
-       value = 0;
-       pvalue = 0;
+   if (input == "1"){
+       val = 0;
+       pval = 0;
    }
  
-   console.log(value)
-   console.log(pvalue)
+   console.log(val)
+   console.log(pval)
  
-}while(input != "n")
+} while (input != "2")
